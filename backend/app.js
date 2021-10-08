@@ -3,10 +3,8 @@ import dotenv from "dotenv";
 import path from 'path';
 import fs from 'fs';
 import readline from 'readline';
-import { formatDate, downloadImagesFromApi } from './helper.js';
+import { formatDate, downloadImagesFromApi, regex } from './helper.js';
 dotenv.config();
-
-const regex = new RegExp(/(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)(?:-| )(\d{1,2})(?:-|,)(?: |)(\d{4})|(\d{2})\/(\d{2})\/(\d{2})/g);
 
 const parseFile = (pathToFile) => {
   // Here we read the file line by line and run the regex to find dates.

@@ -2,6 +2,8 @@ import fs from 'fs';
 import fetch from 'node-fetch';
 import path from 'path';
 
+export const regex = new RegExp(/(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)(?:-| )(\d{1,2})(?:-|,)(?: |)(\d{4})|(\d{2})\/(\d{2})\/(\d{2})/g);
+
 // Helper function to format dates as YYYY-MM-DD
 export const formatDate = (date) => {
     var d = new Date(date),

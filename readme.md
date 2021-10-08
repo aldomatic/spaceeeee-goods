@@ -1,6 +1,6 @@
 # Spaceeee Goods
 
-### Install
+### Install (Backend)
 cd **backend** && npm install
 
 ### Usage
