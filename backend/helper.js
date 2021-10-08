@@ -21,8 +21,23 @@ const createDir = (folderName) =>{
     fs.mkdirSync(`./images/${folderName}`, { recursive: true })
 }
 
-const downloadImageLocally = (remoteUrl, folder) =>{
-    console.log(path.basename(remoteUrl), folder);
+const downloadImageLocally = (remoteUrl, fileName, folder) =>{
+
+    fetch(remoteUrl)
+	.then(res => {
+        try {
+            if (!fs.existsSync(`${folder}/${fileName}`)) {
+                const stream = fs.createWriteStream(`${folder}/${fileName}`);
+                res.body.pipe(stream);
+                stream.on('finish', function(){
+                    console.log('Finished downloading to ', `${folder}/${fileName}`);
+                });
+            }
+          } catch(err) {
+            console.error(err)
+          }
+        }
+	)
 }
 
 // Here we call the nasa api and download the images locally
@@ -34,8 +49,9 @@ export const downloadImagesFromApi = async (url, earth_date, callback) => {
     const data = await response.json();
 
     if(data && data.hasOwnProperty('photos')){
-        data.photos.forEach((photo) => {
-           downloadImageLocally(photo.img_src, `./images/${earth_date}`);
+        console.log('Begin downloading images..')
+        data.photos.slice(0, 10).forEach((photo) => {
+          const result =  downloadImageLocally(photo.img_src, path.basename(photo.img_src),`./images/${earth_date}`);
         });
     }
 
