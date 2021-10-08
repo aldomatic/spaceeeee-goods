@@ -1,0 +1,27 @@
+<div role="main" class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h2>Spaceee</h2><br />
+      <form [formGroup]="form">
+          <div class="form-group">
+              <label for="dates">Earth Dates: </label>
+              <select formControlName="dates" class="form-control" (change)="changeDate($event)">
+                  <option disabled>Select a Date</option>
+                  <option>Choose Date</option>
+                  <option *ngFor="let d of dateList">{{d}}</option>
+              </select>
+          </div>
+      </form>
+    </div>
+    <div class="col-md-9">
+      <div class="card" *ngFor="let photos of photos">
+        <img src={{photos.img_src}} class="card-img-top" alt="..." width="400" height="300">
+        <div class="card-body">
+          <p class="card-text">Id: {{photos.id}}</p>
+          <p class="card-text">Camera: {{photos.camera.full_name}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
