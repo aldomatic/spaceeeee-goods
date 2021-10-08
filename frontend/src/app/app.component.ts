@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   title = 'Spaceee';
   photos: any = [];
-  dateList: any = ['2016-07-13', '2017-02-27']
+  dateList: any = ['2016-07-13', '2017-02-27', '2018-05-01', '2018-06-02']
   apiKey = 'iagHhDKxsJJZ78haOJ7uaqvF2hiqY0azAEqSL0d2'
   constructor(private http: HttpClient) { }
 
