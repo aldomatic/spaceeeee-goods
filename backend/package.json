@@ -6,12 +6,15 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "backend": "node app.js"
+    "backend:download": "node app.js",
+    "backend:server": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "node-fetch": "^3.0.0"
+    "express": "^4.17.1",
+    "node-fetch": "^3.0.0",
+    "serve-index": "^1.9.1"
   }
 }
