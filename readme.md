@@ -9,13 +9,9 @@ This is for the **/backend** directory
 You will need to add a .env file with the api key for the nasa api.
 `api_key=`
 
-1. Run the the script to download the images locally
+1. Run the command below. This will download the images locally and then start a server to show them. 
 `
-npm run backend:download
-`
-2. Run the local server to display the image directory in the browser
-`
-npm run backend:server
+npm run bootstrap
 `
 
 Now navigate to localhost:3000
