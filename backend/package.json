@@ -7,6 +7,7 @@
   "scripts": {
     "backend:download": "node app.js",
     "backend:server": "node server.js",
+    "bootstrap": "npm run backend:download && npm run backend:server",
     "test": "jest"
   },
   "author": "",

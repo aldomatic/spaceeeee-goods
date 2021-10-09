@@ -32,7 +32,7 @@ const downloadImageLocally = (remoteUrl, fileName, folder) =>{
                 const stream = fs.createWriteStream(`${folder}/${fileName}`);
                 res.body.pipe(stream);
                 stream.on('finish', function(){
-                    console.log('Finished downloading to ', `${folder}/${fileName}`);
+                    console.log('Downloading file ', `${folder}/${fileName}`);
                 });
             }
           } catch(err) {
@@ -51,8 +51,7 @@ export const downloadImagesFromApi = async (url, earth_date, callback) => {
     const data = await response.json();
 
     if(data && data.hasOwnProperty('photos')){
-        console.log('Begin downloading images..')
-        data.photos.slice(0, 10).forEach((photo) => {
+        data.photos.slice(0, 5).forEach((photo) => {
           const result =  downloadImageLocally(photo.img_src, path.basename(photo.img_src),`./images/${earth_date}`);
         });
     }
