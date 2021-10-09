@@ -20,10 +20,7 @@ You will need to add a .env file with the api key for the nasa api.
 
 1. Run the command below. This will download the images locally and then start a server to show them.
 
-`
-npm run bootstrap
-
-`
+`npm run bootstrap`
  
 Now navigate to localhost:3000
 
@@ -39,6 +36,4 @@ cd **frontend**  && npm install
 This is for the **/frontend** directory
 
 
-`
-ng serve
-`
+`ng serve`
